@@ -1,11 +1,82 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Sushil Jain - @sushiljainam</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meshki/1.2.3/meshki.min.css">
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/meshki/1.2.3/meshki.min.js"></script>
 
+<head>
+  <title>Sushil Jain - @sushiljainam</title>
+  <meta name="description" content="official website for Sushil Kumar Jain (sushiljainam)">
+  <meta name="keywords" content="sushiljainam, sushil, jainam, sushil kumar jain">
+  <meta name="author" content="Sushil Kumar Jain">
+  <meta property="og:title" content="Sushil K. Jain"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="meta-image.png"/>
+  <meta property="og:url" content="http://sushilja.in"/>
+  <meta property="og:description" content="website for Sushil Kumar Jain (sushiljainam)"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@sushiljainam">
+  <meta name="twitter:title" content="Sushil K. Jain">
+  <meta name="twitter:description" content="website for Sushil Kumar Jain (sushiljainam)">
+  <meta name="twitter:image" content="meta-image.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meshki/1.2.4/meshki.min.css">
+  <link rel="stylesheet" type="text/css" href="sushiljain/meshki/custom.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="sushiljain/sushil_logo_4.ico" type="image/x-icon" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/meshki/1.2.4/meshki.min.js"></script>
 </head>
 <body>
+  <div class="sidenav push">
+  </div>
+  <div class="content">
+    <div class="nav fixed">
+      <ul>
+        <li><a href="logs">logs</a></li>
+        <li><a href="resume">resume</a></li>
+        <!-- <li class="nav-right"><a href="feedback">configuration/settings</a></li> -->
+        <li class="nav-right nav-dropdown hide-on-mobile">
+          <a href="javascript:void(0)" class="nav-dropdown-button">links</a>
+          <div class="nav-dropdown-content">
+            <a href="#buttons-doc">twitter</a>
+            <a href="#sidenav-doc">tumbler</a>
+            <a href="#navbar-doc">wordpress</a>
+            <a href="#grid-doc">gmail</a>
+            <a href="#form-doc">mail</a>
+          </div>
+        </li>
+      </ul>
+  </div>
+  <div class="container">
+    <div class=""><!--row-->
+      <h1 class="text-center title">SushilJain</h1>
+      <h2 class="text-center">
+        <button class="default large" onclick="click_ext($(this));" id="stackoverflow">stackoverflow</button>
+        <button class="default large" onclick="click_ext($(this));" id="github">GitHub</button>
+        <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
+        <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
+      </h2>
+    </div>
 
+  </div>
+</div>
 </body>
+  <script type="text/javascript">
+    function click_ext(el) {
+      var id = el.attr('id');console.log(id);
+      $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
+        console.log(data);
+        var items = [];
+        $.each( data, function( key, val ) {
+          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+          "class": "my-new-list",
+          html: items.join( "" )
+        }).appendTo( "body" );
+      });
+    }
+  </script>
 </html>

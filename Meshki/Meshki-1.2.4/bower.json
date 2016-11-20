@@ -1,0 +1,25 @@
+{
+  "name": "meshki",
+  "version": "1.2.4",
+  "homepage": "http://meshki.borderliner.ir/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Borderliner/Meshki"
+  },
+  "authors": [
+    "Mohammad Reza Hajianpour <hajianpour.mr@gmail.com> (http://borderliner.ir/)"
+  ],
+  "description": "Meshki: A Black-Colored, Responsive Boilerplate for UI Development",
+  "main": [
+    "dist/meshki.css",
+    "dist/meshki.js"
+  ],
+  "keywords": [
+    "css",
+    "meshki",
+    "responsive",
+    "boilerplate",
+    "black"
+  ],
+  "license": "MIT"
+}
