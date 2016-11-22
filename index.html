@@ -77,6 +77,10 @@
   "moreUrls" : [
   { "label": "medium",
     "url": "http://medium.com/@"
+  },
+  { "label": "twitter"
+  },
+  { "label": "tumbler"
   }
   ]
 };
@@ -87,11 +91,10 @@
         console.log(dataJ);
         var items = [];
         $.each( dataJ.urls, function( key, val ) {
-          var localHref = parseURLsj(val,dataJ.key_name);
           var toPush = "<button class='"+dataJ.css.indi.class+"'";
           toPush += " onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")'";
           toPush += " id='" + key + "'";
-          // toPush += " href='"+ localHref +"'";
+          // toPush += " href='"+ parseURLsj(val,dataJ.key_name) +"'";
           toPush += " >" + val.label + "</button>";
           items.push( toPush );
         });
