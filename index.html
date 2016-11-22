@@ -64,10 +64,8 @@
 </div>
 </body>
   <script type="text/javascript">
-  $( document ).ready(function (){
 
 
-      // $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
         data = {
   "key_name": "sushiljainam",
   "urls" : [
@@ -88,11 +86,14 @@
     "url_part": ""
   } ]
 };
+  $( document ).ready(function (){
 
-        console.log(data);
+      // $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
+        var dataJ = data || {};
+        console.log(dataJ);
         var items = [];
-        $.each( data.urls, function( key, val ) {
-          var localHref = parseURLsj(val,data.key_name);
+        $.each( dataJ.urls, function( key, val ) {
+          var localHref = parseURLsj(val,dataJ.key_name);
           items.push( "<button class=' default large' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
         });
 
@@ -106,7 +107,7 @@
     function parseURLsj(el,name) {
       var url = el.url ? el.url : ('http://'+el.label+'.com/');
       var url_part = el.url_part ? el.url_part : name;
-      // ((val.url_part)? (val.url + val.url_part):(val.url + data.key_name));
+      // ((val.url_part)? (val.url + val.url_part):(val.url + name));
       return url+url_part;
     }
     function click_ext(el) {
