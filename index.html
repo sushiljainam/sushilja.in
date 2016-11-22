@@ -115,6 +115,8 @@
       // console.log(parseURLsj((typeof el == 'object'? el :JSON.parse(el)),JSON.parse(name)));
       console.log(parseURLsj( el,name));
       window.location.href = parseURLsj( el,name);
+      //go to counter api, with this url
+      // window.location.href = 'http://api.sushilja.in/?api=linkCounter&link='+parseURLsj( el,name)+'&from='+window.location.href;
     }
     function parseURLsj(el,name) {
       console.log('from parseURLsj');
