@@ -64,20 +64,13 @@
   "key_name": "sushiljainam",
   "urls" : [
   { "label": "stackoverflow",
-    "url": "",
     "url_part": "users/5139807/sushil-kumar-jain"
   },
-  { "label": "github",
-    "url": "",
-    "url_part": ""
+  { "label": "github"
   },
-  { "label": "facebook",
-    "url": "",
-    "url_part": ""
+  { "label": "facebook"
   },
-  { "label": "medium",
-    "url": "",
-    "url_part": ""
+  { "label": "medium"
   } ]
 };
   $( document ).ready(function (){
@@ -88,7 +81,7 @@
         var items = [];
         $.each( dataJ.urls, function( key, val ) {
           var localHref = parseURLsj(val,dataJ.key_name);
-          items.push( "<button class='"+dataJ.css.indi.class+"' onclick='redir("+key+","+JSON.stringify(val)+","+dataJ.key_name+")' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
+          items.push( "<button class='"+dataJ.css.indi.class+"' onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
         });
 
         $( "<div/>", {
@@ -98,7 +91,17 @@
       // });
   });
 
+    function redir (i,el,name) {
+      console.log('!!!!!!!!!!',i,el,name, typeof i, typeof el, typeof name);
+      //if already an object, don't parse it.
+      //even if already a string, don't parse it.
+      // console.log(JSON.parse(el));
+      // console.log(JSON.parse(name));
+      // console.log(parseURLsj((typeof el == 'object'? el :JSON.parse(el)),JSON.parse(name)));
+      console.log(parseURLsj( el,name));
+    }
     function parseURLsj(el,name) {
+      console.log('from parseURLsj');
       return (el.url || ('http://'+el.label+'.com/')) + (el.url_part || name);
     }
     function click_ext(el) {
