@@ -107,7 +107,6 @@
     function parseURLsj(el,name) {
       var url = el.url || ('http://'+el.label+'.com/');
       var url_part = el.url_part || name;
-      // ((val.url_part)? (val.url + val.url_part):(val.url + name));
       return url+url_part;
     }
     function click_ext(el) {
