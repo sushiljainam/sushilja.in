@@ -70,8 +70,15 @@
   },
   { "label": "facebook"
   },
-  { "label": "medium"
-  } ]
+  {
+    "label": "linkedin",
+    "url": "http://linkedin.com/in/"
+  } ],
+  "moreUrls" : [
+  { "label": "medium",
+    "url": "http://medium.com/@"
+  }
+  ]
 };
   $( document ).ready(function (){
 
@@ -81,7 +88,12 @@
         var items = [];
         $.each( dataJ.urls, function( key, val ) {
           var localHref = parseURLsj(val,dataJ.key_name);
-          items.push( "<button class='"+dataJ.css.indi.class+"' onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
+          var toPush = "<button class='"+dataJ.css.indi.class+"'";
+          toPush += " onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")'";
+          toPush += " id='" + key + "'";
+          // toPush += " href='"+ localHref +"'";
+          toPush += " >" + val.label + "</button>";
+          items.push( toPush );
         });
 
         $( "<div/>", {
@@ -92,13 +104,14 @@
   });
 
     function redir (i,el,name) {
-      console.log('!!!!!!!!!!',i,el,name, typeof i, typeof el, typeof name);
-      //if already an object, don't parse it.
-      //even if already a string, don't parse it.
+      // console.log('!!!!!!!!!!',i,el,name, typeof i, typeof el, typeof name);
+      // if already an object, don't parse it.
+      // even if already a string, don't parse it.
       // console.log(JSON.parse(el));
       // console.log(JSON.parse(name));
       // console.log(parseURLsj((typeof el == 'object'? el :JSON.parse(el)),JSON.parse(name)));
       console.log(parseURLsj( el,name));
+      window.location.href = parseURLsj( el,name) ;
     }
     function parseURLsj(el,name) {
       console.log('from parseURLsj');
