@@ -72,19 +72,19 @@
   "key_name": "sushiljainam",
   "urls" : [
   { "label": "stackoverflow",
-    "url": "http://stackoverflow.com/",
+    "url": "",
     "url_part": "users/5139807/sushil-kumar-jain"
   },
   { "label": "github",
-    "url": "http://github.com/",
+    "url": "",
     "url_part": ""
   },
   { "label": "facebook",
-    "url": "http://facebook.com/",
+    "url": "",
     "url_part": ""
   },
   { "label": "medium",
-    "url": "http://medium.com/",
+    "url": "",
     "url_part": ""
   } ]
 };
@@ -92,7 +92,8 @@
         console.log(data);
         var items = [];
         $.each( data.urls, function( key, val ) {
-          items.push( "<button class=' default large' id='" + key + "' href='"+ ((val.url_part)? (val.url + val.url_part):(val.url + data.key_name)) +"' >" + val.label + "</button>" );
+          var localHref = parseURLsj(val,data.key_name);
+          items.push( "<button class=' default large' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
         });
 
         $( "<div/>", {
@@ -102,6 +103,12 @@
       // });
   });
 
+    function parseURLsj(el,name) {
+      var url = el.url ? el.url : ('http://'+el.label+'.com/');
+      var url_part = el.url_part ? el.url_part : name;
+      // ((val.url_part)? (val.url + val.url_part):(val.url + data.key_name));
+      return url+url_part;
+    }
     function click_ext(el) {
       var id = el.attr('id');console.log(id);
     }
