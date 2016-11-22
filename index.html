@@ -51,14 +51,7 @@
   <div class="container">
     <div class="text-center" id="mainDiv"><!--row-->
       <h1 class="text-center title">SushilJain</h1>
-      <!-- <div id="linksArea"></div> -->
-<!--       <h2 class="text-center">
-        <button class="default large" onclick="click_ext($(this));" id="stackoverflow">stackoverflow</button>
-        <button class="default large" onclick="click_ext($(this));" id="github">GitHub</button>
-        <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
-        <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
-      </h2>
- -->    </div>
+    </div>
 
   </div>
 </div>
@@ -67,6 +60,7 @@
 
 
         data = {
+          "css" : {"indi":{"class":"default large"}},
   "key_name": "sushiljainam",
   "urls" : [
   { "label": "stackoverflow",
@@ -94,12 +88,12 @@
         var items = [];
         $.each( dataJ.urls, function( key, val ) {
           var localHref = parseURLsj(val,dataJ.key_name);
-          items.push( "<button class=' default large' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
+          items.push( "<button class='"+dataJ.css.indi.class+"' onclick='redir("+key+","+JSON.stringify(val)+","+dataJ.key_name+")' id='" + key + "' href='"+ localHref +"' >" + val.label + "</button>" );
         });
 
         $( "<div/>", {
           "class": "my-new-list",
-          html: items.join( "" )
+          html: items
         }).appendTo( "#mainDiv");
       // });
   });
