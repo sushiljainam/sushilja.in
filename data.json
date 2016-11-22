@@ -1,15 +1,25 @@
 {
+  "css" : {"indi":{"class":"default large"}},
   "key_name": "sushiljainam",
-  "stackoverflow" : {
-    "url": "http://stackoverflow.com/",
+  "urls" : [
+  { "label": "stackoverflow",
     "url_part": "users/5139807/sushil-kumar-jain"
   },
-  "github" : {
-    "url": "http://github.com/",
-    "url_part": ""
+  { "label": "github"
   },
-  "facebook": {
-    "url": "http://facebook.com/",
-    "url_part": ""
+  { "label": "facebook"
+  },
+  {
+    "label": "linkedin",
+    "url": "http://linkedin.com/in/"
+  } ],
+  "moreUrls" : [
+  { "label": "medium",
+    "url": "http://medium.com/@"
+  },
+  { "label": "twitter"
+  },
+  { "label": "tumbler"
   }
+  ]
 }
