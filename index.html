@@ -49,34 +49,61 @@
       </ul>
   </div>
   <div class="container">
-    <div class=""><!--row-->
+    <div class="text-center" id="mainDiv"><!--row-->
       <h1 class="text-center title">SushilJain</h1>
-      <h2 class="text-center">
+      <!-- <div id="linksArea"></div> -->
+<!--       <h2 class="text-center">
         <button class="default large" onclick="click_ext($(this));" id="stackoverflow">stackoverflow</button>
         <button class="default large" onclick="click_ext($(this));" id="github">GitHub</button>
         <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
         <button class="default large" onclick="click_ext($(this));" id="facebook">facebook</button>
       </h2>
-    </div>
+ -->    </div>
 
   </div>
 </div>
 </body>
   <script type="text/javascript">
-    function click_ext(el) {
-      var id = el.attr('id');console.log(id);
-      $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
+  $( document ).ready(function (){
+
+
+      // $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
+        data = {
+  "key_name": "sushiljainam",
+  "urls" : [
+  { "label": "stackoverflow",
+    "url": "http://stackoverflow.com/",
+    "url_part": "users/5139807/sushil-kumar-jain"
+  },
+  { "label": "github",
+    "url": "http://github.com/",
+    "url_part": ""
+  },
+  { "label": "facebook",
+    "url": "http://facebook.com/",
+    "url_part": ""
+  },
+  { "label": "medium",
+    "url": "http://medium.com/",
+    "url_part": ""
+  } ]
+};
+
         console.log(data);
         var items = [];
-        $.each( data, function( key, val ) {
-          items.push( "<li id='" + key + "'>" + val + "</li>" );
+        $.each( data.urls, function( key, val ) {
+          items.push( "<button class=' default large' id='" + key + "' href='"+ ((val.url_part)? (val.url + val.url_part):(val.url + data.key_name)) +"' >" + val.label + "</button>" );
         });
 
-        $( "<ul/>", {
+        $( "<div/>", {
           "class": "my-new-list",
           html: items.join( "" )
-        }).appendTo( "body" );
-      });
+        }).appendTo( "#mainDiv");
+      // });
+  });
+
+    function click_ext(el) {
+      var id = el.attr('id');console.log(id);
     }
   </script>
 </html>
