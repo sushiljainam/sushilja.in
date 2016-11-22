@@ -105,9 +105,7 @@
   });
 
     function parseURLsj(el,name) {
-      var url = el.url || ('http://'+el.label+'.com/');
-      var url_part = el.url_part || name;
-      return url+url_part;
+      return (el.url || ('http://'+el.label+'.com/')) + (el.url_part || name);
     }
     function click_ext(el) {
       var id = el.attr('id');console.log(id);
