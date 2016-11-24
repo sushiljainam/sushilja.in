@@ -36,21 +36,14 @@
         <li><a href="logs">logs</a></li>
         <li><a href="resume">resume</a></li>
         <!-- <li class="nav-right"><a href="feedback">configuration/settings</a></li> -->
-        <li class="nav-right nav-dropdown hide-on-mobile">
+        <li class="nav-right nav-dropdown hide-on-mobile" id="side-list-li">
           <a href="javascript:void(0)" class="nav-dropdown-button">links</a>
-          <div class="nav-dropdown-content">
-            <a href="#buttons-doc">twitter</a>
-            <a href="#sidenav-doc">tumbler</a>
-            <a href="#navbar-doc">wordpress</a>
-            <a href="#grid-doc">gmail</a>
-            <a href="#form-doc">mail</a>
-          </div>
         </li>
       </ul>
   </div>
   <div class="container">
     <div class="text-center" id="mainDiv"><!--row-->
-      <h1 class="text-center title">SushilJain</h1>
+      <!-- <h1 class="text-center title">SushilJain</h1> -->
     </div>
 
   </div>
@@ -61,29 +54,29 @@
 
         data = {
           "css" : {"indi":{"class":"default large"}},
-  "key_name": "sushiljainam",
-  "urls" : [
-  { "label": "stackoverflow",
-    "url_part": "users/5139807/sushil-kumar-jain"
-  },
-  { "label": "github"
-  },
-  { "label": "facebook"
-  },
-  {
-    "label": "linkedin",
-    "url": "http://linkedin.com/in/"
-  } ],
-  "moreUrls" : [
-  { "label": "medium",
-    "url": "http://medium.com/@"
-  },
-  { "label": "twitter"
-  },
-  { "label": "tumbler"
-  }
-  ]
-};
+          "key_name": "sushiljainam",
+          "urls" : [
+          { "label": "stackoverflow",
+            "url_part": "users/5139807/sushil-kumar-jain"
+          },
+          { "label": "github"
+          },
+          { "label": "facebook"
+          },
+          {
+            "label": "linkedin",
+            "url": "http://linkedin.com/in/"
+          } ],
+          "moreUrls" : [
+          { "label": "medium",
+            "url": "http://medium.com/@"
+          },
+          { "label": "twitter"
+          },
+          { "label": "tumbler"
+          }
+          ]
+        };
   $( document ).ready(function (){
 
       // $.getJSON( "http://sushilja.in/sushiljain/data.json", function( data ) {
@@ -103,6 +96,24 @@
           "class": "my-new-list",
           html: items
         }).appendTo( "#mainDiv");
+
+        var items = [];
+        $.each( dataJ.moreUrls, function(key,val) {
+          var toPush = "<a href='#'>";
+          toPush += val.label;
+          toPush += "</a>";
+          items.push( toPush);
+        });
+        $.each( dataJ.urls, function(key,val) {
+          var toPush = "<a >";
+          toPush += val.label;
+          toPush += "</a>";
+          items.push( toPush);
+        });
+        $("<div/>",{
+          "class": "nav-dropdown-content",
+          html :items
+        }).appendTo( "#side-list-li" );
       // });
   });
 
