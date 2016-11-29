@@ -99,13 +99,17 @@
 
         var items = [];
         $.each( dataJ.moreUrls, function(key,val) {
-          var toPush = "<a href='#'>";
+          var toPush = "<a href='#'";
+          toPush += " onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")'";
+          toPush += ">";
           toPush += val.label;
           toPush += "</a>";
           items.push( toPush);
         });
         $.each( dataJ.urls, function(key,val) {
-          var toPush = "<a >";
+          var toPush = "<a href='#'";
+          toPush += " onclick='redir("+key+","+JSON.stringify(val)+","+JSON.stringify(dataJ.key_name)+")'";
+          toPush += ">";
           toPush += val.label;
           toPush += "</a>";
           items.push( toPush);
@@ -126,7 +130,9 @@
       // console.log(parseURLsj((typeof el == 'object'? el :JSON.parse(el)),JSON.parse(name)));
       console.log(parseURLsj( el,name));
       window.location.href = parseURLsj( el,name);
-      //go to counter api, with this url
+      //go to counter api, with this url, this API will record counters {[fromURL,]toURL,frequency} - {toUTRL:[fromURL..],..} {fb-su:[{undefined:34},{www-su:4}..],med-su:[{undefined:3},{www-su:8}..],..}
+      //what if toURL is external- that's above case.
+      //what if fromURL is external- that may be the case.
       // window.location.href = 'http://api.sushilja.in/?api=linkCounter&link='+parseURLsj( el,name)+'&from='+window.location.href;
     }
     function parseURLsj(el,name) {
